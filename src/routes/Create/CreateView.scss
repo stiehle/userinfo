@@ -1,0 +1,18 @@
+.createuser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  gap: 1rem;
+  margin: 0 auto;
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: fit-content;
+    font-size: 1.3rem;
+    color: black;
+    gap: 1rem;
+  }
+}

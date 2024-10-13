@@ -1,0 +1,27 @@
+.sidebar-items {
+  margin: 0rem auto;
+
+  &__header {
+    font-size: 1rem;
+    background-color: #5e5e5e;
+    padding: 0.5rem;
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+
+    .iconButton {
+      background-color: #e68434;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .iconButton:nth-child(2) {
+      background-color: #5e5e5e;
+    }
+  }
+}
