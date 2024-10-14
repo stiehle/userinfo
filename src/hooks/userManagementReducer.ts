@@ -1,8 +1,9 @@
 import { User } from "../components/types/User";
+import { userData } from "../data/userData";
 
-type UserManagementState = User[];
+export type UserManagementState = User[];
 
-type UserMangementAction = {
+export type UserMangementAction = {
   type: "ADD_USER" | "REMOVE_USER" | "UPDATE_USER";
   user: User;
 };
@@ -28,11 +29,13 @@ export default function userManagementReducer(prevState: UserManagementState, ac
 
     default: {
       updatedState = prevState;
+
       break;
     }
   }
 
   localStorage.setItem("users", JSON.stringify(updatedState));
+  // localStorage.setItem("users", JSON.stringify(userData));
 
   return updatedState;
 }

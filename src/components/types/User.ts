@@ -7,7 +7,7 @@ export enum Gender {
 export type User = {
   id: number;
   username: string;
-  birthday: Date;
+  birthday: string;
   gender: Gender;
   email: string;
   address: string;

@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import DateInput from "../../components/Dateinput/Dateinput";
 import IconButton from "../../components/IconButton/IconButton";
 import SelectInput from "../../components/SelectInput/SelectInput";
 import TextInput from "../../components/Textinput/Textinput";
 import { useFormInput } from "../../hooks/useFormInput";
 import "./CreateView.scss";
+import { UserContext } from "../../context/UserContext";
+import { Gender, User } from "../../components/types/User";
 
 function CreateView() {
   const userName = useFormInput("", true);
@@ -13,6 +16,40 @@ function CreateView() {
   const phone = useFormInput("", true);
   const mail = useFormInput("", true);
   const web = useFormInput("", true);
+
+  const { usersDispatch } = useContext(UserContext);
+
+  function convertStringToGender(value: string): Gender {
+    switch (value) {
+      case "Male":
+        return Gender.MALE;
+      case "Female":
+        return Gender.FEMALE;
+      case "Other":
+        return Gender.OTHER;
+      default:
+        return Gender.OTHER;
+    }
+  }
+
+  function handleSaveButtonNewUser() {
+    console.log("Save");
+    const user: User = {
+      id: Math.random(),
+      username: userName.value,
+      birthday: birthday.value,
+      gender: convertStringToGender(gender.value),
+      email: mail.value,
+      address: address.value,
+      phone: phone.value,
+      web: web.value,
+      image: "user000.jpg",
+    };
+
+    console.log(user);
+    usersDispatch({ type: "ADD_USER", user: user });
+    alert("Added user");
+  }
 
   return (
     <div className="createuser">
@@ -32,13 +69,7 @@ function CreateView() {
         <TextInput value={mail.value} onChange={mail.handleInputChangeEvent} id={"mail"} name={"Mail"} error={mail.error} />
         <TextInput value={web.value} onChange={web.handleInputChangeEvent} id={"web"} name={"Webseite"} error={web.error} />
 
-        <IconButton
-          buttonFunction={"save"}
-          buttonClick={() => {
-            console.log("speichern", gender.value);
-          }}
-          buttonText={"Speichern"}
-        />
+        <IconButton buttonFunction={"save"} buttonClick={handleSaveButtonNewUser} buttonText={"Speichern"} />
       </div>
     </div>
   );
