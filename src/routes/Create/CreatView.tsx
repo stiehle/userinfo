@@ -32,23 +32,39 @@ function CreateView() {
     }
   }
 
-  function handleSaveButtonNewUser() {
-    console.log("Save");
-    const user: User = {
-      id: Math.random(),
-      username: userName.value,
-      birthday: birthday.value,
-      gender: convertStringToGender(gender.value),
-      email: mail.value,
-      address: address.value,
-      phone: phone.value,
-      web: web.value,
-      image: "user000.jpg",
-    };
+  function isValidInputs(): boolean {
+    const isUserNameValid = userName.validateInput(userName.value);
+    const isBirthdayValid = birthday.validateInput(birthday.value);
+    const isAddressValid = address.validateInput(address.value);
+    const isGenderValid = gender.validateInput(gender.value);
+    const isPhoneValid = phone.validateInput(phone.value);
+    const isMailValid = mail.validateInput(mail.value);
+    const isWebValid = web.validateInput(web.value);
 
-    console.log(user);
-    usersDispatch({ type: "ADD_USER", user: user });
-    alert("Added user");
+    return isUserNameValid && isBirthdayValid && isAddressValid && isGenderValid && isPhoneValid && isMailValid && isWebValid;
+  }
+
+  function handleSaveButtonNewUser() {
+    if (isValidInputs()) {
+      console.log("Save", isValidInputs());
+      const user: User = {
+        id: Math.random(),
+        username: userName.value,
+        birthday: birthday.value,
+        gender: convertStringToGender(gender.value),
+        email: mail.value,
+        address: address.value,
+        phone: phone.value,
+        web: web.value,
+        image: "user000.jpg",
+      };
+
+      console.log(user);
+      usersDispatch({ type: "ADD_USER", user: user });
+      alert("Added user");
+    } else {
+      alert("Bitte die Daten ergänzen");
+    }
   }
 
   return (

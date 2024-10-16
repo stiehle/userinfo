@@ -9,6 +9,7 @@ export function useFormInput(initialValue: string, required = false) {
     const inputValue = event.target.value;
     console.log(inputValue);
     setValue(inputValue);
+    validateInput(inputValue);
 
     if (required) {
       if (inputValue === "") {
@@ -21,9 +22,25 @@ export function useFormInput(initialValue: string, required = false) {
     }
   };
 
+  function validateInput(inputValue: string): boolean {
+    if (required) {
+      if (inputValue === "") {
+        //setze Fehler
+        setError({ isError: true, errorMessage: "Bitte geben Sie einen Wert ein" });
+        return false;
+      } else {
+        // Reset
+        setError({ isError: false, errorMessage: "" });
+        return true;
+      }
+    }
+    return true;
+  }
+
   return {
     value,
     handleInputChangeEvent,
     error,
+    validateInput: validateInput,
   };
 }

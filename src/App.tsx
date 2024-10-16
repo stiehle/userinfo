@@ -9,9 +9,23 @@ import EditView from "./routes/Edit/EditView";
 import { useReducer } from "react";
 import userManagementReducer from "./hooks/userManagementReducer";
 import { UserContext } from "./context/UserContext";
+import { userData } from "./data/userData";
 
 function App() {
-  const [users, usersDispatch] = useReducer(userManagementReducer, []);
+  const [users, usersDispatch] = useReducer(userManagementReducer, userData);
+
+  //   {
+  //     id: 12345,
+  //     username: "User 2",
+  //     birthday: "22.02.2009",
+  //     gender: Gender.FEMALE,
+  //     email: "hallo@hallo.de",
+  //     address: "Musterstraße 2",
+  //     phone: "1223344",
+  //     web: "www.user.de",
+  //     image: "user000.jpg",
+  //   },
+  // ]);
 
   const router = createBrowserRouter(
     [

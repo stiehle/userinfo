@@ -1,5 +1,4 @@
 import { User } from "../components/types/User";
-import { userData } from "../data/userData";
 
 export type UserManagementState = User[];
 
@@ -35,7 +34,6 @@ export default function userManagementReducer(prevState: UserManagementState, ac
   }
 
   localStorage.setItem("users", JSON.stringify(updatedState));
-  // localStorage.setItem("users", JSON.stringify(userData));
 
   return updatedState;
 }
