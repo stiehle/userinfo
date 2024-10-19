@@ -1,16 +1,27 @@
 // import { useState } from "react";
 import { ChangeEventHandler } from "react";
 import "./SelectInput.scss";
+import { ValidationError } from "../types/Validation";
 
 type SelectInputProps = {
   value: string;
   onChange: ChangeEventHandler<HTMLSelectElement>;
   options: string[];
+  error: ValidationError;
   id: string;
   name: string;
 };
 
-function SelectInput({ value, onChange, options, id, name }: SelectInputProps) {
+function SelectInput({ value, onChange, error, options, id, name }: SelectInputProps) {
+  function displayError() {
+    if (error.isError) {
+      return (
+        <>
+          <p className={"date-input__error"}>{error.errorMessage}</p>
+        </>
+      );
+    }
+  }
   return (
     <div className="select-input">
       <label className="select-input__label" htmlFor={id}>
@@ -24,6 +35,7 @@ function SelectInput({ value, onChange, options, id, name }: SelectInputProps) {
           </option>
         ))}
       </select>
+      {displayError()}
     </div>
   );
 }

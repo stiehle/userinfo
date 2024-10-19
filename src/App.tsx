@@ -9,10 +9,18 @@ import EditView from "./routes/Edit/EditView";
 import { useReducer } from "react";
 import userManagementReducer from "./hooks/userManagementReducer";
 import { UserContext } from "./context/UserContext";
-import { userData } from "./data/userData";
+import { User } from "./components/types/User";
+import { userDataTemplate } from "./data/userDataTemplate";
 
 function App() {
-  const [users, usersDispatch] = useReducer(userManagementReducer, userData);
+  const [users, usersDispatch] = useReducer(userManagementReducer, [], fetchInitUserData);
+
+  function fetchInitUserData(): User[] {
+    const stringUsers = localStorage.getItem("users");
+    if (stringUsers) {
+      return JSON.parse(stringUsers);
+    } else return userDataTemplate;
+  }
 
   //   {
   //     id: 12345,

@@ -5,13 +5,31 @@ import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { PiGenderIntersex } from "react-icons/pi";
 import { TbWorldWww } from "react-icons/tb";
 import "./UserCard.scss";
-import { User } from "../types/User";
+import { Gender, User } from "../types/User";
 
 type ItemProps = {
   item: User;
 };
 
 function UserCard({ item }: ItemProps) {
+  function convertGenderToString(value: Gender): string {
+    switch (value) {
+      case Gender.MALE:
+        return "Männlich";
+      case Gender.FEMALE:
+        return "Weiblich";
+      case Gender.OTHER:
+        return "Divers";
+      default:
+        return "Divers";
+    }
+  }
+
+  function convertDate(date: string) {
+    console.log(date);
+    return new Date(date).toLocaleDateString();
+  }
+
   return (
     <div className="usercard">
       <IconContext.Provider value={{ color: "blue", size: "20px" }}>
@@ -23,7 +41,7 @@ function UserCard({ item }: ItemProps) {
           <div className="usercard__data-items">
             <div className="usercard__data-item">
               <LiaBirthdayCakeSolid />
-              {item.birthday}
+              {convertDate(item.birthday)}
             </div>
             <div className="usercard__data-item">
               <FaRegAddressCard />
@@ -33,7 +51,7 @@ function UserCard({ item }: ItemProps) {
           <div className="usercard__data-items">
             <div className="usercard__data-item">
               <PiGenderIntersex />
-              {item.gender}
+              {convertGenderToString(item.gender)}
             </div>
             <div className="usercard__data-item">
               <IoPhonePortraitOutline />

@@ -1,6 +1,6 @@
 import "./Overview.scss";
-import "./../../data/userData";
-import { userData } from "./../../data/userData";
+import "../../data/userDataTemplate";
+import { userDataTemplate } from "../../data/userDataTemplate";
 import { IconContext } from "react-icons";
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { FaRegAddressCard } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { IoMailOutline, IoPhonePortraitOutline } from "react-icons/io5";
 import { TbWorldWww } from "react-icons/tb";
 
 function Overview() {
-  const data = userData;
+  const data = userDataTemplate;
 
   return (
     <>

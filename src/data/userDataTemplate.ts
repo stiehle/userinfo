@@ -1,6 +1,6 @@
-import { Gender } from "../components/types/User";
+import { Gender, User } from "../components/types/User";
 
-export const userData = [
+export const userDataTemplate: User[] = [
   {
     id: 1001,
     username: "User 1",
@@ -16,7 +16,7 @@ export const userData = [
     id: 1002,
     username: "User 2",
     birthday: "22.02.2009",
-    gender: Gender.MALE,
+    gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
     phone: "1223344",
@@ -27,7 +27,7 @@ export const userData = [
     id: 1003,
     username: "User 3",
     birthday: "22.02.2009",
-    gender: Gender.MALE,
+    gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
     phone: "1223344",
@@ -71,7 +71,7 @@ export const userData = [
     id: 1007,
     username: "User 7",
     birthday: "22.02.2009",
-    gender: Gender.MALE,
+    gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
     phone: "1223344",
@@ -82,7 +82,7 @@ export const userData = [
     id: 1008,
     username: "User 8",
     birthday: "22.02.2009",
-    gender: Gender.MALE,
+    gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
     phone: "1223344",

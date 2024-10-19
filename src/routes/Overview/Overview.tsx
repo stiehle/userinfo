@@ -1,15 +1,17 @@
-import { user } from "../../components/types/User";
+import { useContext } from "react";
+import { User } from "../../components/types/User";
 import UserCard from "../../components/UserCard/UserCard";
-import { userData } from "../../data/userData";
 import "./Overview.scss";
+import { UserContext } from "../../context/UserContext";
 
 function Overview() {
-  const data = userData;
+  const { users } = useContext(UserContext);
+  console.log(users);
 
   return (
     <div className="userlist">
       <h1>Übersicht</h1>
-      {data.map((item: user) => {
+      {users.map((item: User) => {
         return (
           <div key={item.id}>
             <UserCard item={item} />
