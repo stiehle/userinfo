@@ -4,7 +4,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1001,
     username: "User 1",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.MALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -15,7 +15,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1002,
     username: "User 2",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -26,7 +26,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1003,
     username: "User 3",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -37,7 +37,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1004,
     username: "User 4",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -48,7 +48,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1005,
     username: "User 5",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.MALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -59,7 +59,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1006,
     username: "User 6",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.MALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -70,7 +70,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1007,
     username: "User 7",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",
@@ -81,7 +81,7 @@ export const userDataTemplate: User[] = [
   {
     id: 1008,
     username: "User 8",
-    birthday: "22.02.2009",
+    birthday: "2009-02-22",
     gender: Gender.FEMALE,
     email: "hallo@hallo.de",
     address: "Musterstraße 2",

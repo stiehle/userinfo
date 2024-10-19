@@ -6,12 +6,15 @@ import { PiGenderIntersex } from "react-icons/pi";
 import { TbWorldWww } from "react-icons/tb";
 import "./UserCard.scss";
 import { Gender, User } from "../types/User";
+import { useNavigate } from "react-router-dom";
+import IconButton from "../IconButton/IconButton";
 
 type ItemProps = {
   item: User;
 };
 
 function UserCard({ item }: ItemProps) {
+  const navigate = useNavigate();
   function convertGenderToString(value: Gender): string {
     switch (value) {
       case Gender.MALE:
@@ -27,17 +30,42 @@ function UserCard({ item }: ItemProps) {
 
   function convertDate(date: string) {
     console.log(date);
-    return new Date(date).toLocaleDateString();
+    const dateFormat = new Date(date).toLocaleDateString("de-DE", { year: "numeric", month: "2-digit", day: "2-digit" });
+    console.log(dateFormat);
+    return dateFormat;
   }
 
+  function userCardSelect(id: number): void {
+    console.log(id);
+    navigate("/edit/" + id);
+  }
+
+  // function deleteCard(handleInputChangeEvent: React.ChangeEvent<HTMLInputElement>) {
+  //   console.log(handleInputChangeEvent.stopPropagation);
+  //   handleInputChangeEvent.stopPropagation;
+  //   //console.log(id);
+  // }
+
+  function deleteCard(id: number) {
+    console.log(id, "geklickt");
+  }
+  // <div className="usercard" onClick={() => userCardSelect(item.id)}></div>
   return (
     <div className="usercard">
       <IconContext.Provider value={{ color: "blue", size: "20px" }}>
-        <div className="usercard__image">
+        <div className="usercard__image" onClick={() => userCardSelect(item.id)}>
           <img src={`./user/${item.image}`} alt="User" className="image" />
         </div>
-        <div className="usercard__data">
-          <div className="usercard__data-header">{item.username}</div>
+        <div className="usercard__data" onClick={() => userCardSelect(item.id)}>
+          <div className="usercard__data-items">
+            <div className="usercard__data-header">{item.username}</div>
+            {/* <button
+              onClick={(e: React.MouseEvent) => {
+                deleteCard(e, item.id);
+              }}>
+              Löschen
+            </button> */}
+          </div>
           <div className="usercard__data-items">
             <div className="usercard__data-item">
               <LiaBirthdayCakeSolid />
@@ -68,6 +96,15 @@ function UserCard({ item }: ItemProps) {
               {item.web}
             </div>
           </div>
+        </div>
+        <div className="usercard__command">
+          <IconButton buttonFunction={"trash"} buttonClick={() => deleteCard(item.id)} buttonText={""} />
+          {/* <button
+            onClick={(e: React.MouseEvent) => {
+              deleteCard(e, item.id);
+            }}>
+            Löschen
+          </button> */}
         </div>
       </IconContext.Provider>
     </div>

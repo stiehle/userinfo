@@ -22,19 +22,6 @@ function App() {
     } else return userDataTemplate;
   }
 
-  //   {
-  //     id: 12345,
-  //     username: "User 2",
-  //     birthday: "22.02.2009",
-  //     gender: Gender.FEMALE,
-  //     email: "hallo@hallo.de",
-  //     address: "Musterstraße 2",
-  //     phone: "1223344",
-  //     web: "www.user.de",
-  //     image: "user000.jpg",
-  //   },
-  // ]);
-
   const router = createBrowserRouter(
     [
       {

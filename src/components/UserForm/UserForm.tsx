@@ -4,9 +4,9 @@ import IconButton from "../../components/IconButton/IconButton";
 import SelectInput from "../../components/SelectInput/SelectInput";
 import TextInput from "../../components/Textinput/Textinput";
 import { useFormInput } from "../../hooks/useFormInput";
-import "./UserForm.scss";
 import { UserContext } from "../../context/UserContext";
 import { Gender, User } from "../../components/types/User";
+import "./UserForm.scss";
 
 type userProps = {
   user: User | null;
@@ -34,6 +34,7 @@ function UserForm({ user }: userProps) {
   const phone = useFormInput(user ? user.phone : "", true);
   const mail = useFormInput(user ? user.email : "", true);
   const web = useFormInput(user ? user.web : "", true);
+  const image = user ? "../user/" + user.image : "./user/user000.jpg";
 
   const { usersDispatch } = useContext(UserContext);
 
@@ -75,7 +76,7 @@ function UserForm({ user }: userProps) {
         address: address.value,
         phone: phone.value,
         web: web.value,
-        image: "user000.jpg",
+        image: image,
       };
 
       console.log(user);
@@ -85,6 +86,7 @@ function UserForm({ user }: userProps) {
       alert("Bitte die Daten ergänzen");
     }
   }
+
   function handleSaveButtonChangeUser() {
     if (user) {
       const userChange: User = {
@@ -107,7 +109,9 @@ function UserForm({ user }: userProps) {
   return (
     <div className="userform">
       {user ? <h1>Benutzer ändern</h1> : <h1>Benutzer erstellen</h1>}
-
+      <div className="userform__image">
+        <img src={image} alt="User" className="userform__image-user" />
+      </div>
       <div className="userform__input">
         <TextInput value={userName.value} onChange={userName.handleInputChangeEvent} id={"user"} name={"Benutzername"} error={userName.error} />
         <DateInput value={birthday.value} onChange={birthday.handleInputChangeEvent} id={"birthday"} name={"Geburtstag"} error={birthday.error} />

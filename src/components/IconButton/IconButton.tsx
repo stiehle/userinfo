@@ -33,8 +33,8 @@ function IconButton({ buttonFunction, buttonClick, buttonText }: iconButton) {
     },
     {
       name: "trash",
-      iconSymbol: <CgTrash className="iconButton__icon--white" />,
-      size: "18px",
+      iconSymbol: <CgTrash className="iconButton__icon--red" />,
+      size: "20px",
     },
     {
       name: "link",
