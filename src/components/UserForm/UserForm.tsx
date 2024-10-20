@@ -34,7 +34,8 @@ function UserForm({ user }: userProps) {
   const phone = useFormInput(user ? user.phone : "", true);
   const mail = useFormInput(user ? user.email : "", true);
   const web = useFormInput(user ? user.web : "", true);
-  const image = user ? "../user/" + user.image : "./user/user000.jpg";
+  const image = user ? user.image : "user000.jpg";
+  console.log(image);
 
   const { usersDispatch } = useContext(UserContext);
 
@@ -110,7 +111,11 @@ function UserForm({ user }: userProps) {
     <div className="userform">
       {user ? <h1>Benutzer ändern</h1> : <h1>Benutzer erstellen</h1>}
       <div className="userform__image">
-        <img src={image} alt="User" className="userform__image-user" />
+        {user ? (
+          <img src={`../user/${image}`} alt="User" className="userform__image-user" />
+        ) : (
+          <img src={`./user/${image}`} alt="User" className="userform__image-user" />
+        )}
       </div>
       <div className="userform__input">
         <TextInput value={userName.value} onChange={userName.handleInputChangeEvent} id={"user"} name={"Benutzername"} error={userName.error} />

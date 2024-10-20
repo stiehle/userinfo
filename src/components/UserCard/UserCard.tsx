@@ -8,12 +8,16 @@ import "./UserCard.scss";
 import { Gender, User } from "../types/User";
 import { useNavigate } from "react-router-dom";
 import IconButton from "../IconButton/IconButton";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 type ItemProps = {
   item: User;
 };
 
 function UserCard({ item }: ItemProps) {
+  const { usersDispatch } = useContext(UserContext);
+
   const navigate = useNavigate();
   function convertGenderToString(value: Gender): string {
     switch (value) {
@@ -29,9 +33,9 @@ function UserCard({ item }: ItemProps) {
   }
 
   function convertDate(date: string) {
-    console.log(date);
+    // console.log(date);
     const dateFormat = new Date(date).toLocaleDateString("de-DE", { year: "numeric", month: "2-digit", day: "2-digit" });
-    console.log(dateFormat);
+    // console.log(dateFormat);
     return dateFormat;
   }
 
@@ -48,6 +52,8 @@ function UserCard({ item }: ItemProps) {
 
   function deleteCard(id: number) {
     console.log(id, "geklickt");
+    usersDispatch({ type: "REMOVE_USER", user: item });
+    console.log(item);
   }
   // <div className="usercard" onClick={() => userCardSelect(item.id)}></div>
   return (

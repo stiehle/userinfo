@@ -25,3 +25,12 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .sidebar-items {
+    &__action {
+      flex-direction: row;
+      height: 2rem;
+    }
+  }
+}

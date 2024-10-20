@@ -69,3 +69,28 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .usercard {
+    &__image {
+      width: 100px;
+    }
+
+    &__data {
+      font-size: 0.8rem;
+    }
+
+    &__data-header {
+      font-size: 1rem;
+    }
+
+    &__data-items {
+      gap: 0.5rem;
+      height: 2rem;
+    }
+
+    &__data-item {
+      width: 100%;
+    }
+  }
+}
