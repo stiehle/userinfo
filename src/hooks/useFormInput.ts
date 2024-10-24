@@ -7,7 +7,7 @@ export function useFormInput(initialValue: string, required = false) {
 
   const handleInputChangeEvent = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const inputValue = event.target.value;
-    console.log(inputValue);
+
     setValue(inputValue);
     validateInput(inputValue);
 

@@ -5,7 +5,7 @@ import { MdSaveAlt } from "react-icons/md";
 
 type iconButton = {
   buttonFunction: string;
-  buttonClick(): void;
+  buttonClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
   buttonText: string;
 };
 
@@ -69,7 +69,7 @@ function IconButton({ buttonFunction, buttonClick, buttonText }: iconButton) {
   return (
     <>
       <IconContext.Provider value={{ className: "iconButton__icon", size: selectIconSize() }}>
-        <button onClick={buttonClick} className="iconButton">
+        <button onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => buttonClick(event)} className="iconButton">
           {selectIcon()}
           {buttonText}
         </button>

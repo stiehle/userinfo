@@ -6,7 +6,6 @@ import "./Sidebar.scss";
 function Sidebar() {
   const navigate = useNavigate();
   function handleClick(action: string): void {
-    console.log(action);
     switch (action) {
       case "show":
         navigate("overview");

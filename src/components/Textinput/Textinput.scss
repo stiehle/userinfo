@@ -1,3 +1,5 @@
+@import "/src/styles/colors";
+
 .text-input {
   display: flex;
   flex-direction: column;
@@ -6,22 +8,19 @@
   &__text {
     font-size: 1.3rem;
     padding: 0.5rem;
-    // margin-bottom: 0.5rem;
     border-radius: 10px;
-    // background-color: #2d3324;
   }
 
   &__label {
-    color: #ffffff;
-    background-color: #b89e7c;
+    color: $textinput-label-font-color;
+    background-color: $textinput-label-background-color;
     width: fit-content;
     border-radius: 10px;
     padding: 0 1rem;
   }
 
   &__error {
-    color: red;
+    color: $textinput-error-font-color;
     font-size: 1rem;
-    // margin-bottom: 0.5rem;
   }
 }

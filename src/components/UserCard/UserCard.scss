@@ -1,10 +1,13 @@
+@import "/src/styles/colors";
+
 .usercard {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
+  border: 1px solid $usercard-border-color;
   width: 100%;
   height: 8rem;
-  background-color: bisque;
+  background-color: $usercard-background-color;
+  position: relative;
 
   &__image {
     display: flex;
@@ -26,7 +29,7 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
-    color: #000000;
+    color: $usercard-data-font-color;
     padding-left: 1rem;
     cursor: pointer;
   }
@@ -58,8 +61,10 @@
   }
 
   &__command {
-    width: fit-content;
-    background-color: #c3c5c1;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+
     .iconButton {
       background-color: transparent;
       height: 30px;

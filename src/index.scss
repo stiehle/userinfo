@@ -1,3 +1,5 @@
+@import "/src/styles/colors";
+
 * {
   margin: 0;
   padding: 0;
@@ -8,19 +10,13 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: $root-font-color;
+  background-color: $root-background-color;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #000000;
-    background-color: #ffffff;
+    color: $root-media-font-color;
+    background-color: $root-media-background-color;
   }
-  // a:hover {
-  //   color: #747bff;
-  // }
-  // button {
-  //   background-color: #f9f9f9;
-  // }
 }

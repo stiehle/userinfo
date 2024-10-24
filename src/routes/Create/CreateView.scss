@@ -1,3 +1,4 @@
+@import "/src/styles/colors";
 .createuser {
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@
     width: 60%;
     height: fit-content;
     font-size: 1.3rem;
-    color: black;
+    color: $create-input-font-color;
     gap: 1rem;
   }
 }

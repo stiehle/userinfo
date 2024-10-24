@@ -1,7 +1,6 @@
 @import "../../styles/colors";
 
 .iconButton {
-  // display: inline-block;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -10,7 +9,6 @@
   font-family: inherit;
   font-weight: 500;
   padding: 1rem;
-  // border: none;
   border-radius: 10px;
   cursor: pointer;
   border: 2px solid transparent;
@@ -37,5 +35,5 @@
 }
 
 .iconButton:hover {
-  border: 2px solid blue;
+  border: 2px solid $iconbutton-hover-border-color;
 }

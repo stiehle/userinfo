@@ -1,9 +1,7 @@
+@import "/src/styles/colors";
+
 .welcome {
   margin: 1rem auto;
-  color: #312d2d;
+  color: $welcome-font-color;
   width: fit-content;
-
-  p {
-    color: blue;
-  }
 }

@@ -6,7 +6,6 @@ import { UserContext } from "../../context/UserContext";
 
 function Overview() {
   const { users } = useContext(UserContext);
-  console.log(users);
 
   return (
     <div className="userlist">

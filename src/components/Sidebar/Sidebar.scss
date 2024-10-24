@@ -1,9 +1,11 @@
+@import "/src/styles/colors";
+
 .sidebar-items {
   margin: 0rem auto;
 
   &__header {
     font-size: 1rem;
-    background-color: #5e5e5e;
+    background-color: $sidebar-header-background-color;
     padding: 0.5rem;
   }
 
@@ -15,13 +17,13 @@
     gap: 1rem;
 
     .iconButton {
-      background-color: #e68434;
+      background-color: $sidebar-action-first-icon-background-color;
       width: 100%;
       border-radius: 10px;
     }
 
     .iconButton:nth-child(2) {
-      background-color: #5e5e5e;
+      background-color: $sidebar-action-second-icon-background-color;
     }
   }
 }

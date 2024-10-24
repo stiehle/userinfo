@@ -1,21 +1,20 @@
+@import "/src/styles/colors";
+
 .main {
   display: flex;
   flex-direction: row;
-  // justify-content: center;
-  // align-items: center;
   height: 100vh;
   width: 100%;
-  // background-color: #ff0808;
 
   &__sidebar {
     min-width: 30%;
-    background-color: #a7a5a5;
+    background-color: $main-sidebar-background-color;
   }
 
   &__content {
     width: 100%;
     height: 100%;
-    background-color: #d3d3d3;
+    background-color: $main-content-background-color;
     overflow-y: auto;
     scrollbar-width: none;
   }
@@ -27,7 +26,7 @@
 
     &__sidebar {
       width: 100%;
-      background-color: #a7a5a5;
+      background-color: $main-media-content-background-color;
     }
 
     &__content {

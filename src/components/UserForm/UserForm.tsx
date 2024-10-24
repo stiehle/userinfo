@@ -26,7 +26,6 @@ function UserForm({ user }: userProps) {
     }
   }
 
-  // console.log(user);
   const userName = useFormInput(user ? user.username : "", true);
   const birthday = useFormInput(user ? user.birthday : "", true);
   const address = useFormInput(user ? user.address : "", true);
@@ -35,12 +34,10 @@ function UserForm({ user }: userProps) {
   const mail = useFormInput(user ? user.email : "", true);
   const web = useFormInput(user ? user.web : "", true);
   const image = user ? user.image : "user000.jpg";
-  console.log(image);
 
   const { usersDispatch } = useContext(UserContext);
 
   function convertStringToGender(value: string): Gender {
-    console.log(value);
     switch (value) {
       case "Männlich":
         return Gender.MALE;
@@ -67,7 +64,6 @@ function UserForm({ user }: userProps) {
 
   function handleSaveButtonNewUser() {
     if (isValidInputs()) {
-      console.log("Save", isValidInputs());
       const user: User = {
         id: Math.random(),
         username: userName.value,
@@ -80,7 +76,6 @@ function UserForm({ user }: userProps) {
         image: image,
       };
 
-      console.log(user);
       usersDispatch({ type: "ADD_USER", user: user });
       alert("Added user");
     } else {
@@ -101,7 +96,6 @@ function UserForm({ user }: userProps) {
         web: web.value,
         image: user.image,
       };
-      console.log(user, userChange);
 
       usersDispatch({ type: "UPDATE_USER", user: userChange });
     }

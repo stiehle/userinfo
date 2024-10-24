@@ -10,7 +10,6 @@ function EditView() {
 
   const selectedUser = users.find((item) => item.id === Number(itemId));
 
-  console.log(selectedUser);
   if (selectedUser) {
     const user = {
       id: selectedUser.id,

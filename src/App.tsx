@@ -15,16 +15,9 @@ import { userDataTemplate } from "./data/userDataTemplate";
 function App() {
   const [users, usersDispatch] = useReducer(userManagementReducer, [], fetchInitUserData);
 
-  // function fetchInitUserData(): User[] {
-  //   const stringUsers = localStorage.getItem("users");
-  //   if (stringUsers) {
-  //     return JSON.parse(stringUsers);
-  //   } else return userDataTemplate;
-  // }
-
   function fetchInitUserData(): User[] {
     const stringUsers = localStorage.getItem("users");
-    console.log("-->", stringUsers, stringUsers?.length);
+
     if (stringUsers && stringUsers.length > 2) {
       return JSON.parse(stringUsers);
     } else return userDataTemplate;
